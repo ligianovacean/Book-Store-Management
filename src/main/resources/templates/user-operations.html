@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Users</title>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="js/userOper.js"></script>
+    <style>
+        td {
+            width: 200px;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        table, th, td {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<a th:href="@{/logout}">Logout</a>
+
+<hr/>
+
+<h1>Users:</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Username</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<hr/>
+
+<form>
+    Username: <input type="text" id="username"/>
+    Password: <input type="text" id="password"/>
+    <button id = "createUser">Create User</button>
+</form>
+
+<hr/>
+
+<form>
+    Username: <input type="text" id="deleteUsername"/>
+    <button id = "deleteUser">Delete User</button>
+</form>
+
+<hr/>
+
+<form>
+    Username: <input type="text" id="updateUsername"/>
+    Password: <input type="text" id="updatePassword"/>
+    <button id = "updateUser">Update User</button>
+</form>
+
+<hr/>
+
+<form>
+    <output type = "text" id="error"></output>
+</form>
+
+<hr/>
+</body>
+</html>

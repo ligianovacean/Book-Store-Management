@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Books</title>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="js/bookOper.js"></script>
+    <style>
+        td {
+            width: 200px;
+        }
+
+        th {
+            text-align: left;
+        }
+
+        table, th, td {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <a th:href="@{/logout}">Logout</a>
+
+    <h1>Books:</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <hr/>
+
+    <form>
+        Title: <input type="text" id="title"/>
+        Author:
+        <select name="author" id="author">
+            <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.name}"></option>
+        </select>
+        Genre: <input type="text" id="genre"/>
+        Price: <input type ="number" id="price"/>
+        Quantity: <input type = "number" id="quantity"/>
+        <button id = "createBook">Create</button>
+    </form>
+
+    <hr/>
+
+    <form>
+        Title:
+        <select name="book" id="bookTitle">
+            <option th:each="book : ${books}" th:value="${book.id}" th:text="${book.title}"></option>
+        </select>
+        <button id = "deleteBook">Delete</button>
+    </form>
+
+    <hr/>
+
+    <form>
+        Title:
+        <select name="book" id="updateTitle">
+            <option th:each="book : ${books}" th:value="${book.title}" th:text="${book.title}"></option>
+        </select>
+        Author:
+        <select name="author" id="updateAuthor">
+        <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.name}"></option>
+    </select>
+        Genre: <input type="text" id="updateGenre"/>
+        Price: <input type ="number" id="updatePrice"/>
+        Quantity: <input type = "number" id="updateQuantity"/>
+        <button id = "updateBook">Update</button>
+    </form>
+
+    <hr/>
+
+    <a th:href="@{/authors/create}">Create Author</a>
+
+    <hr/>
+
+    <form>
+        <button id = "generateCsvReport">Generate CSV Report</button>
+    </form>
+
+    <form>
+        <button id = "generatePdfReport">Generate PDF Report</button>
+    </form>
+
+    <form>
+        <input type = "text" id = "searchBy"/>
+        <button id = "googleSearch">Google Search</button>
+    </form>
+
+    <hr/>
+
+    <form>
+        <output type = "text" id = "error"></output>
+    </form>
+
+</body>
+</html>

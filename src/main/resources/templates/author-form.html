@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Create Author</title>
+</head>
+<body>
+<a th:href="@{/logout}">Logout</a>
+
+<hr/>
+
+    <form th:action="@{/authors/create}" th:object="${author}" method="post">
+        Name: <input type="text" name="name" th:field="${author.name}"/>
+        <button>Create</button>
+    </form>
+
+    <div th:if="${param.success}">
+        Author created successfully!
+    </div>
+
+</body>
+</html>
